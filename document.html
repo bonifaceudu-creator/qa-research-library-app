@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Document Details | QA & Research Library</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+          <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#062a52">
+
+    <style>
+
+        .document-page {
+            background: #f5f8fb;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .document-hero {
+            background: #062a52;
+            color: white;
+            padding: 45px 0;
+        }
+
+        .back-link {
+            color: #a9d5f5;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .document-hero h1 {
+            font-size: 36px;
+            max-width: 800px;
+            line-height: 1.2;
+            margin: 20px 0 12px;
+        }
+
+        .document-hero p {
+            color: #c8dbea;
+            max-width: 700px;
+            font-size: 14px;
+        }
+
+        .document-content {
+            padding-top: 40px;
+        }
+
+        .document-card {
+            background: white;
+            border: 1px solid #dfe7ef;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 850px;
+        }
+
+        .document-label {
+            color: #0d67b5;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .document-card h2 {
+            color: #062a52;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: #dfe7ef;
+            border: 1px solid #dfe7ef;
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 18px;
+        }
+
+        .detail-item span {
+            display: block;
+            color: #8190a0;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: .7px;
+            margin-bottom: 6px;
+        }
+
+        .detail-item strong {
+            color: #26394d;
+            font-size: 13px;
+        }
+
+        .status-controlled {
+            color: #087443 !important;
+        }
+
+        .document-description {
+            color: #647689;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .open-pdf {
+            background: #0d67b5;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .open-pdf:hover {
+            background: #062a52;
+        }
+
+        .back-library {
+            border: 1px solid #cbd8e4;
+            color: #52677b;
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .back-library:hover {
+            background: #eef5fa;
+        }
+
+        @media (max-width: 600px) {
+
+            .document-hero h1 {
+                font-size: 28px;
+            }
+
+            .document-card {
+                padding: 20px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <span>
+            QUALITY ASSURANCE & RESEARCH DEPARTMENT
+        </span>
+
+        <span>
+            Technical Knowledge Centre • Ajaokuta Steel Plant
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a class="brand"
+           href="index.html">
+
+            <img
+                src="images/logo.png"
+                alt="QA & Research"
+            >
+
+            <span>
+
+                <b>
+                    QA & RESEARCH
+                </b>
+
+                <small>
+                    Digital Library
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="library.html">
+                Library
+            </a>
+
+            <a class="active"
+               href="library.html">
+                Documents
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <a class="portal"
+           href="#">
+            Staff Portal
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- DOCUMENT HERO -->
+
+<section class="document-hero">
+
+    <div class="container">
+
+        <a class="back-link"
+           href="library.html">
+
+            ← Back to Library
+
+        </a>
+
+
+        <h1 id="documentTitle">
+            Quality Management System Manual
+        </h1>
+
+
+        <p id="documentDescription">
+
+            Controlled departmental quality
+            management document.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- DOCUMENT DETAILS -->
+
+<main class="document-page">
+
+    <div class="container document-content">
+
+        <div class="document-card">
+
+            <div class="document-label">
+                CONTROLLED DOCUMENT
+            </div>
+
+
+            <h2>
+                Document Information
+            </h2>
+
+
+            <div class="details-grid">
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Document Number
+                    </span>
+
+                    <strong id="documentNumber">
+                        QA-MAN-001
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Revision
+                    </span>
+
+                    <strong id="documentRevision">
+                        Rev. 01
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Category
+                    </span>
+
+                    <strong id="documentCategory">
+                        ISO Standards
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Year
+                    </span>
+
+                    <strong id="documentYear">
+                        2026
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Department
+                    </span>
+
+                    <strong>
+                        Quality Assurance & Research
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong
+                        class="status-controlled"
+                        id="documentStatus">
+
+                        Controlled
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="document-description"
+               id="fullDescription">
+
+                This document provides the controlled
+                quality management requirements and
+                procedures applicable to the Quality
+                Assurance & Research Department.
+
+            </p>
+
+
+            <div class="document-actions">
+
+                <a
+                    class="open-pdf"
+                    id="pdfLink"
+                    href="documents/iso/qms-manual.pdf"
+                    target="_blank">
+
+                    OPEN PDF →
+
+                </a>
+
+
+                <a
+                    class="back-library"
+                    href="library.html">
+
+                    BACK TO LIBRARY
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <div class="footer-brand">
+                QA & RESEARCH DIGITAL LIBRARY
+            </div>
+
+            <p>
+                Quality Assurance & Research Department
+                <br>
+                Ajaokuta Steel Plant
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Library
+            </b>
+
+            <a href="library.html">
+                Catalogue
+            </a>
+
+            <a href="index.html">
+                Homepage
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="container copyright">
+
+        © 2026 Quality Assurance & Research Department
+
+    </div>
+
+</footer>
+
+<script>
+
+const documents = {
+
+    "QA-MAN-001": {
+        title: "Quality Management System Manual",
+        description: "Controlled departmental quality management document.",
+        number: "QA-MAN-001",
+        revision: "Rev. 01",
+        category: "ISO Standards",
+        year: "2026",
+        department: "Quality Assurance & Research",
+        status: "Controlled",
+        pdf: "documents/iso/qms-manual.pdf"
+    },
+
+
+    "RES-PAP-001": {
+        title: "Metallurgical Properties of Structural Steel",
+        description: "Research paper covering steel composition, microstructure and mechanical properties.",
+        number: "RES-PAP-001",
+        revision: "Rev. 01",
+        category: "Research Papers",
+        year: "2026",
+        department: "Quality Assurance & Research",
+        status: "Approved",
+        pdf: "documents/research/research-paper.pdf"
+    },
+
+
+    "QA-CAL-001": {
+        title: "Laboratory Calibration Schedule",
+        description: "Controlled schedule for calibration of laboratory measuring and testing equipment.",
+        number: "QA-CAL-001",
+        revision: "Rev. 01",
+        category: "Calibration",
+        year: "2026",
+        department: "Quality Assurance & Research",
+        status: "Controlled",
+        pdf: "documents/calibration/calibration-schedule.pdf"
+    },
+
+
+    "QA-SOP-001": {
+        title: "Steel Chemical Analysis Procedure",
+        description: "Approved procedure for chemical analysis of steel and related metallurgical samples.",
+        number: "QA-SOP-001",
+        revision: "Rev. 01",
+        category: "Laboratory SOPs",
+        year: "2026",
+        department: "Quality Assurance & Research",
+        status: "Approved",
+        pdf: "documents/sops/chemical-analysis-sop.pdf"
+    },
+
+
+    "QA-TR-001": {
+        title: "Mechanical Testing Reference Manual",
+        description: "Reference document covering mechanical testing methods, requirements and technical procedures.",
+        number: "QA-TR-001",
+        revision: "Rev. 01",
+        category: "Technical Reports",
+        year: "2026",
+        department: "Quality Assurance & Research",
+        status: "Approved",
+        pdf: "documents/reports/mechanical-testing-report.pdf"
+    },
+
+
+    "QA-TM-001": {
+        title: "Laboratory Safety and Operations Manual",
+        description: "Training reference covering laboratory safety, equipment operation and working procedures.",
+        number: "QA-TM-001",
+        revision: "Rev. 01",
+        category: "Training Manuals",
+        year: "2026",
+        department: "Quality Assurance & Research",
+        status: "Controlled",
+        pdf: "documents/training/laboratory-training-manual.pdf"
+    }
+
+};
+
+
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+const documentID =
+    urlParams.get("doc");
+
+const documentData =
+    documents[documentID];
+
+
+if (documentData) {
+
+    document.getElementById("documentTitle").textContent =
+        documentData.title;
+
+    document.getElementById("documentDescription").textContent =
+        documentData.description;
+
+    document.getElementById("documentNumber").textContent =
+        documentData.number;
+
+    document.getElementById("documentRevision").textContent =
+        documentData.revision;
+
+    document.getElementById("documentCategory").textContent =
+        documentData.category;
+
+    document.getElementById("documentYear").textContent =
+        documentData.year;
+
+    document.getElementById("documentStatus").textContent =
+        documentData.status;
+
+    document.getElementById("fullDescription").textContent =
+        documentData.description;
+
+    document.getElementById("pdfLink").href =
+        documentData.pdf;
+
+    document.title =
+        documentData.title +
+        " | QA & Research Library";
+
+}
+</script>
+
+<script>
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", function() {
+
+            navigator.serviceWorker
+                .register("sw.js")
+                .then(function() {
+
+                    console.log(
+                        "QA Research Library service worker registered."
+                    );
+
+                })
+                .catch(function(error) {
+
+                    console.log(
+                        "Service worker registration failed:",
+                        error
+                    );
+
+                });
+
+        });
+
+    }
+</script>
+
+</body>
+
+</html>

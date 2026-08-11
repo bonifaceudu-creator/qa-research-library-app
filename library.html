@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Library Catalogue | QA & Research
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+          <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#062a52">
+
+    <style>
+
+        /* =========================
+           LIBRARY PAGE
+        ========================= */
+
+        .library-page {
+            background: #f5f8fb;
+            min-height: 100vh;
+        }
+
+
+        .library-hero {
+            background: #062a52;
+            color: white;
+            padding: 55px 0;
+        }
+
+
+        .library-hero h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin: 8px 0 12px;
+        }
+
+
+        .library-hero p {
+            color: #c9dced;
+            max-width: 650px;
+            font-size: 14px;
+        }
+
+
+        .library-search {
+            margin-top: 25px;
+            background: white;
+            padding: 5px;
+            border-radius: 7px;
+            max-width: 700px;
+            display: flex;
+        }
+
+
+        .library-search input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 13px;
+            font-size: 14px;
+            min-width: 0;
+        }
+
+
+        .library-search button {
+            border: none;
+            background: #0d67b5;
+            color: white;
+            padding: 0 24px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+
+        .catalogue {
+            padding: 50px 0 80px;
+        }
+
+
+        .catalogue-layout {
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            gap: 30px;
+        }
+
+
+        /* SIDEBAR */
+
+        .category-box {
+            background: white;
+            border: 1px solid #dfe7ef;
+            border-radius: 9px;
+            overflow: hidden;
+            height: fit-content;
+        }
+
+
+        .category-title {
+            padding: 17px;
+            background: #eef5fa;
+            color: #062a52;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+
+        .category-button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            border: 0;
+            background: white;
+            padding: 13px 17px;
+            font-size: 12px;
+            color: #52677b;
+            cursor: pointer;
+            border-bottom: 1px solid #edf1f5;
+        }
+
+
+        .category-button:hover,
+        .category-button.selected {
+            background: #eaf3fb;
+            color: #0d67b5;
+            font-weight: 800;
+        }
+
+
+        /* DOCUMENT AREA */
+
+        .catalogue-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 20px;
+        }
+
+
+        .catalogue-heading h2 {
+            color: #062a52;
+            font-size: 28px;
+        }
+
+
+        .document-count {
+            color: #7b8b9b;
+            font-size: 11px;
+        }
+
+
+        .library-documents {
+            display: grid;
+            gap: 12px;
+        }
+
+
+        .library-document {
+            background: white;
+            border: 1px solid #dfe7ef;
+            border-radius: 9px;
+            padding: 18px;
+            display: grid;
+            grid-template-columns: 48px 1fr auto;
+            gap: 16px;
+            align-items: center;
+        }
+
+
+        .library-document:hover {
+            border-color: #b9d5eb;
+            box-shadow: 0 8px 25px rgba(4, 34, 65, 0.07);
+        }
+
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            background: #eaf3fb;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0d67b5;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+
+        .library-document h3 {
+            font-size: 14px;
+            color: #15263a;
+            margin-bottom: 4px;
+        }
+
+
+        .library-document p {
+            color: #7a8999;
+            font-size: 10px;
+        }
+
+
+        .document-meta {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+
+        .document-tag {
+            background: #eef5fa;
+            color: #557087;
+            padding: 4px 7px;
+            border-radius: 4px;
+            font-size: 9px;
+        }
+
+
+        .document-year {
+            color: #8998a7;
+            font-size: 10px;
+        }
+
+
+        .view-document {
+            background: #062a52;
+            color: white;
+            padding: 9px 13px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+
+        .view-document:hover {
+            background: #0d67b5;
+        }
+
+
+        .no-results {
+            display: none;
+            background: white;
+            border: 1px solid #dfe7ef;
+            border-radius: 9px;
+            padding: 35px;
+            text-align: center;
+            color: #748597;
+            font-size: 13px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .library-hero h1 {
+                font-size: 32px;
+            }
+
+            .library-search {
+                display: flex;
+            }
+
+            .library-search input {
+                width: 100%;
+            }
+
+            .library-search button {
+                padding: 0 15px;
+            }
+
+            .catalogue-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .category-box {
+                display: flex;
+                overflow-x: auto;
+            }
+
+            .category-title {
+                display: none;
+            }
+
+            .category-button {
+                width: auto;
+                white-space: nowrap;
+                border-bottom: 0;
+            }
+
+            .library-document {
+                grid-template-columns: 42px 1fr;
+            }
+
+            .view-document {
+                grid-column: 2;
+                width: fit-content;
+            }
+
+        }
+.document-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 9px;
+}
+
+.document-details span {
+    font-size: 9px;
+    color: #738496;
+}
+
+.document-details b {
+    color: #50677d;
+    margin-right: 3px;
+}
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+<!-- HEADER -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <span>
+            QUALITY ASSURANCE & RESEARCH DEPARTMENT
+        </span>
+
+        <span>
+            Technical Knowledge Centre • Ajaokuta Steel Plant
+        </span>
+
+    </div>
+
+</div>
+
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a class="brand"
+           href="index.html">
+
+            <img
+                src="images/logo.png"
+                alt="Ajaokuta Steel Company logo"
+            >
+
+            <span>
+
+                <b>
+                    QA & RESEARCH
+                </b>
+
+                <small>
+                    Digital Library
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a class="active"
+               href="library.html">
+                Library
+            </a>
+
+            <a href="library.html">
+                Documents
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <a class="portal"
+           href="#">
+            Staff Portal
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- LIBRARY HERO -->
+
+<section class="library-hero">
+
+    <div class="container">
+
+        <div class="eyebrow"
+             style="color:#8fc9f4;">
+
+            TECHNICAL KNOWLEDGE CENTRE
+
+        </div>
+
+
+        <h1>
+            Library Catalogue
+        </h1>
+
+
+        <p>
+            Search and browse approved standards,
+            laboratory procedures, research papers,
+            technical reports and other departmental
+            resources.
+        </p>
+
+
+        <form class="library-search"
+              id="searchForm">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search documents by title, keyword or category..."
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- CATALOGUE -->
+
+<main class="library-page">
+
+<section class="container catalogue">
+
+    <div class="catalogue-layout">
+
+
+        <!-- CATEGORY SIDEBAR -->
+
+        <aside class="category-box">
+
+            <div class="category-title">
+                CATEGORIES
+            </div>
+
+
+            <button
+                class="category-button selected"
+                data-category="all">
+
+                All Documents
+
+            </button>
+
+
+            <button
+                class="category-button"
+                data-category="ISO Standards">
+
+                ISO Standards
+
+            </button>
+
+
+            <button
+                class="category-button"
+                data-category="Research Papers">
+
+                Research Papers
+
+            </button>
+
+
+            <button
+                class="category-button"
+                data-category="Calibration">
+
+                Calibration
+
+            </button>
+
+
+            <button
+                class="category-button"
+                data-category="Laboratory SOPs">
+
+                Laboratory SOPs
+
+            </button>
+
+
+            <button
+                class="category-button"
+                data-category="Technical Reports">
+
+                Technical Reports
+
+            </button>
+
+
+            <button
+                class="category-button"
+                data-category="Training Manuals">
+
+                Training Manuals
+
+            </button>
+
+        </aside>
+
+
+
+        <!-- DOCUMENT LIST -->
+
+        <section>
+
+
+            <div class="catalogue-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        DOCUMENT COLLECTION
+                    </div>
+
+                    <h2>
+                        Technical Documents
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="document-count"
+                    id="documentCount">
+
+                    6 documents
+
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="library-documents"
+                id="documentList">
+
+
+                <!-- DOCUMENT 1 -->
+
+                <article
+    class="library-document"
+    data-category="ISO Standards"
+    data-title="Quality Management System Manual">
+
+    <div class="document-icon">
+        PDF
+    </div>
+
+
+    <div>
+
+        <h3>
+            Quality Management System Manual
+        </h3>
+
+        <p>
+            Controlled departmental quality
+            management document.
+        </p>
+
+
+        <div class="document-meta">
+
+            <span class="document-tag">
+                ISO Standards
+            </span>
+
+            <span class="document-year">
+                2026
+            </span>
+
+        </div>
+
+
+        <div class="document-details">
+
+            <span>
+                <b>Doc No.</b>
+                QA-MAN-001
+            </span>
+
+            <span>
+                <b>Revision</b>
+                Rev. 01
+            </span>
+
+            <span>
+                <b>Status</b>
+                Controlled
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <a class="view-document"
+   href="document.html?doc=QA-MAN-001">
+    View
+</a>
+
+</article>
+
+
+
+                <!-- DOCUMENT 2 -->
+
+                <article
+    class="library-document"
+    data-category="Research Papers"
+    data-title="Metallurgical Properties of Structural Steel">
+
+    <div class="document-icon">
+        PDF
+    </div>
+
+    <div>
+
+        <h3>
+            Metallurgical Properties of Structural Steel
+        </h3>
+
+        <p>
+            Research paper covering steel composition,
+            microstructure and mechanical properties.
+        </p>
+
+        <div class="document-meta">
+
+            <span class="document-tag">
+                Research Papers
+            </span>
+
+            <span class="document-year">
+                2026
+            </span>
+
+        </div>
+
+        <div class="document-details">
+
+            <span>
+                <b>Doc No.</b>
+                RES-PAP-001
+            </span>
+
+            <span>
+                <b>Revision</b>
+                Rev. 01
+            </span>
+
+            <span>
+                <b>Status</b>
+                Approved
+            </span>
+
+        </div>
+
+    </div>
+
+    <a class="view-document"
+   href="document.html?doc=RES-PAP-001">
+    View
+</a>
+
+</article>
+
+
+
+                <!-- DOCUMENT 3 -->
+
+                <article
+    class="library-document"
+    data-category="Calibration"
+    data-title="Laboratory Calibration Schedule">
+
+    <div class="document-icon">
+        PDF
+    </div>
+
+    <div>
+
+        <h3>
+            Laboratory Calibration Schedule
+        </h3>
+
+        <p>
+            Controlled schedule for calibration of
+            laboratory measuring and testing equipment.
+        </p>
+
+        <div class="document-meta">
+
+            <span class="document-tag">
+                Calibration
+            </span>
+
+            <span class="document-year">
+                2026
+            </span>
+
+        </div>
+
+        <div class="document-details">
+
+            <span>
+                <b>Doc No.</b>
+                QA-CAL-001
+            </span>
+
+            <span>
+                <b>Revision</b>
+                Rev. 01
+            </span>
+
+            <span>
+                <b>Status</b>
+                Controlled
+            </span>
+
+        </div>
+
+    </div>
+
+    <a class="view-document"
+   href="document.html?doc=QA-CAL-001">
+    View
+</a>
+
+</article>
+
+
+
+                <!-- DOCUMENT 4 -->
+
+                <article
+    class="library-document"
+    data-category="Laboratory SOPs"
+    data-title="Steel Chemical Analysis Procedure">
+
+    <div class="document-icon">
+        PDF
+    </div>
+
+    <div>
+
+        <h3>
+            Steel Chemical Analysis Procedure
+        </h3>
+
+        <p>
+            Approved procedure for chemical analysis
+            of steel and related metallurgical samples.
+        </p>
+
+        <div class="document-meta">
+
+            <span class="document-tag">
+                Laboratory SOPs
+            </span>
+
+            <span class="document-year">
+                2026
+            </span>
+
+        </div>
+
+        <div class="document-details">
+
+            <span>
+                <b>Doc No.</b>
+                QA-SOP-001
+            </span>
+
+            <span>
+                <b>Revision</b>
+                Rev. 01
+            </span>
+
+            <span>
+                <b>Status</b>
+                Approved
+            </span>
+
+        </div>
+
+    </div>
+
+    <a class="view-document"
+   href="document.html?doc=QA-SOP-001">
+    View
+</a>
+
+</article>
+
+
+
+                <!-- DOCUMENT 5 -->
+
+                <article
+    class="library-document"
+    data-category="Technical Reports"
+    data-title="Mechanical Testing Reference Manual">
+
+    <div class="document-icon">
+        PDF
+    </div>
+
+    <div>
+
+        <h3>
+            Mechanical Testing Reference Manual
+        </h3>
+
+        <p>
+            Reference document covering mechanical testing
+            methods, requirements and technical procedures.
+        </p>
+
+        <div class="document-meta">
+
+            <span class="document-tag">
+                Technical Reports
+            </span>
+
+            <span class="document-year">
+                2026
+            </span>
+
+        </div>
+
+        <div class="document-details">
+
+            <span>
+                <b>Doc No.</b>
+                QA-TR-001
+            </span>
+
+            <span>
+                <b>Revision</b>
+                Rev. 01
+            </span>
+
+            <span>
+                <b>Status</b>
+                Approved
+            </span>
+
+        </div>
+
+    </div>
+
+    <a class="view-document"
+   href="document.html?doc=QA-TR-001">
+    View
+</a>
+
+</article>
+
+
+
+                <!-- DOCUMENT 6 -->
+
+                <article
+    class="library-document"
+    data-category="Training Manuals"
+    data-title="Laboratory Safety and Operations Manual">
+
+    <div class="document-icon">
+        PDF
+    </div>
+
+    <div>
+
+        <h3>
+            Laboratory Safety and Operations Manual
+        </h3>
+
+        <p>
+            Training reference covering laboratory safety,
+            equipment operation and working procedures.
+        </p>
+
+        <div class="document-meta">
+
+            <span class="document-tag">
+                Training Manuals
+            </span>
+
+            <span class="document-year">
+                2026
+            </span>
+
+        </div>
+
+        <div class="document-details">
+
+            <span>
+                <b>Doc No.</b>
+                QA-TM-001
+            </span>
+
+            <span>
+                <b>Revision</b>
+                Rev. 01
+            </span>
+
+            <span>
+                <b>Status</b>
+                Controlled
+            </span>
+
+        </div>
+
+    </div>
+
+    <a class="view-document"
+   href="document.html?doc=QA-TM-001">
+    View
+</a>
+
+</article>
+
+
+            </div>
+
+
+            <div
+                class="no-results"
+                id="noResults">
+
+                No documents matched your search.
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <div class="footer-brand">
+                QUALITY ASSURANCE AND RESEARCH DIGITAL LIBRARY
+            </div>
+
+            <p>
+                Quality Assurance & Research Department
+                <br>
+                Ajaokuta Steel Plant
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Library
+            </b>
+
+            <a href="library.html">
+                Catalogue
+            </a>
+
+            <a href="index.html">
+                Homepage
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <b>
+                Department
+            </b>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container copyright">
+
+        © 2026 Quality Assurance & Research Department
+
+    </div>
+
+</footer>
+
+
+
+<!-- SEARCH & FILTER JAVASCRIPT -->
+
+<script>
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const searchForm =
+    document.getElementById("searchForm");
+
+const documents =
+    document.querySelectorAll(".library-document");
+
+const categoryButtons =
+    document.querySelectorAll(".category-button");
+
+const noResults =
+    document.getElementById("noResults");
+
+const documentCount =
+    document.getElementById("documentCount");
+
+
+let selectedCategory = "all";
+
+// Read category selected from the homepage
+const urlParams = new URLSearchParams(window.location.search);
+const categoryFromURL = urlParams.get("category");
+
+if (categoryFromURL) {
+
+    selectedCategory = categoryFromURL;
+
+    categoryButtons.forEach(function(button) {
+
+        if (button.dataset.category === categoryFromURL) {
+            button.classList.add("selected");
+        } else {
+            button.classList.remove("selected");
+        }
+
+    });
+
+    filterDocuments();
+}
+
+function filterDocuments() {
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    let visible = 0;
+
+
+    documents.forEach(function(document) {
+
+        const title =
+            document.dataset.title.toLowerCase();
+
+        const category =
+            document.dataset.category.toLowerCase();
+
+
+        const categoryMatch =
+            selectedCategory === "all" ||
+            category === selectedCategory.toLowerCase();
+
+
+        const documentText =
+    document.textContent.toLowerCase();
+
+
+const searchMatch =
+    search === "" ||
+    title.includes(search) ||
+    category.includes(search) ||
+    documentText.includes(search);
+
+
+        if (categoryMatch && searchMatch) {
+
+            document.style.display = "grid";
+
+            visible++;
+
+        } else {
+
+            document.style.display = "none";
+
+        }
+
+    });
+
+
+    documentCount.textContent =
+        visible +
+        (visible === 1 ? " document" : " documents");
+
+
+    if (visible === 0) {
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+}
+
+
+searchForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        filterDocuments();
+
+    }
+);
+
+
+searchInput.addEventListener(
+    "input",
+    filterDocuments
+);
+
+
+categoryButtons.forEach(
+    function(button) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                categoryButtons.forEach(
+                    function(item) {
+                        item.classList.remove("selected");
+                    }
+                );
+
+
+                button.classList.add("selected");
+
+
+                selectedCategory =
+                    button.dataset.category;
+
+
+                filterDocuments();
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+<script>
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", function() {
+
+            navigator.serviceWorker
+                .register("sw.js")
+                .then(function() {
+
+                    console.log(
+                        "QA Research Library service worker registered."
+                    );
+
+                })
+                .catch(function(error) {
+
+                    console.log(
+                        "Service worker registration failed:",
+                        error
+                    );
+
+                });
+
+        });
+
+    }
+</script>
+
+</body>
+
+</html>
