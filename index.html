@@ -1029,40 +1029,35 @@
 </footer>
 
 <script>
-    if ("serviceWorker" in navigator) {
-
-        window.addEventListener("load", function() {
-
-            navigator.serviceWorker
-                .register("sw.js")
-                .then(function() {
-
-                    console.log(
-                        "QA Research Library service worker registered."
-                    );
-
-                })
-                .catch(function(error) {
-
-                    console.log(
-                        "Service worker registration failed:",
-                        error
-                    );
-
-                });
-
-        });
-
-    }
-</script>
-
-   <script>
 if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-        navigator.serviceWorker.register("./sw.js");
+    window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./sw.js")
+            .then(function(reg) {
+                console.log("QA Research Library service worker registered.");
+                
+                // Force an update check immediately on launch to beat Glo's lag
+                reg.update(); 
+
+                // If a new update is found and installed, reload the app instantly
+                reg.onupdatefound = function() {
+                    var installingWorker = reg.installing;
+                    if (installingWorker) {
+                        installingWorker.onstatechange = function() {
+                            if (installingWorker.state === "installed" && navigator.serviceWorker.controller) {
+                                console.log("New library update applied! Reloading...");
+                                window.location.reload();
+                            }
+                        };
+                    }
+                };
+            })
+            .catch(function(error) {
+                console.log("Service worker registration failed:", error);
+            });
     });
 }
-</script> 
+</script>
+ 
     
 </body>
 
