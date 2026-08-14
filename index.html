@@ -1029,6 +1029,23 @@
 </footer>
 
 <script>
+
+// Intercept the Android device's physical back button press
+window.addEventListener('popstate', function (event) {
+    // If there is history to go back to, force the webview to go back
+    if (window.history.length > 1) {
+        window.history.back();
+    }
+});
+
+// Push a starting state into the history when the app loads
+// This ensures Android has a history stack to navigate backward through
+if (window.history && window.history.pushState) {
+    window.history.pushState('forward', null, './' + window.location.hash);
+}
+
+
+    
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
         navigator.serviceWorker.register("./sw.js")
