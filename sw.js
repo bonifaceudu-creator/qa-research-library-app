@@ -1,4 +1,4 @@
-const CACHE_NAME = "qa-research-library-v2";
+const CACHE_NAME = "qa-research-library-v3";
 
 // 1. List EVERY file your app needs to display the library
 const ASSETS_TO_CACHE = [
@@ -18,7 +18,9 @@ const ASSETS_TO_CACHE = [
     "./images/research-icon.png",
     "./images/calibration-icon.png",
     "./images/sop-icon.png",
-    "./images/report-icon.png"
+    "./images/report-icon.png",
+    "./images/steel-coils.png",
+    "./images/training-icon.png",
 ];
 
 
