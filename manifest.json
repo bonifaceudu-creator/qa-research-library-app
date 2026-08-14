@@ -1,11 +1,11 @@
 {
   "name": "QA & Research Digital Library",
   "short_name": "QA Research Library",
-  "id": "./",
+  "id": "/QA-Research-Library/",
   "description": "Digital library of standards, research papers, calibration documents, laboratory SOPs, technical reports and training manuals.",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "scope": "./",
-  "display": "standalone",
+  "display": "minimal-ui",
   "background_color": "#ffffff",
   "theme_color": "#062a52",
   "orientation": "portrait",
@@ -36,3 +36,4 @@
     }
   ]
 }
+
