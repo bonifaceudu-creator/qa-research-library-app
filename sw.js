@@ -9,7 +9,7 @@ const ASSETS_TO_CACHE = [
     "./style.css",
     "./manifest.json",
 
-    "./images/logo.png",
+    "./images/logo.webp",
     "./images/icon-192.png",
     "./images/icon-512.png",
     "./images/hero-ajao.webp",
